@@ -34,7 +34,10 @@ let i = slides.length;
 const newDiv = '<div class="dot"></div>';
 
 function genereDot(i) {
-  document.querySelector(".dots").innerHTML = `${newDiv.repeat(i)}`;
+  document.querySelector(".dots").innerHTML = newDiv.repeat(i);
 }
 
 genereDot(i);
+
+const dotSelected = document.querySelector(".dot");
+dotSelected.classList.add("dot_selected");
