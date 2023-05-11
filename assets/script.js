@@ -37,11 +37,13 @@ dotSelected.classList.add("dot_selected");
 //************************************************************ */
 
 let bannerImage = document.querySelector(".banner-img");
-let slideNumber = 0;
 let bannerP = document.querySelector("p");
+let slideNumber = 0;
 
 function changeSlide(sens) {
   slideNumber = slideNumber + sens;
+  if (slideNumber > numberOfSlide - 1) slideNumber = 0;
+  if (slideNumber < 0) slideNumber = numberOfSlide - 1;
   bannerImage.src = "./assets/images/slideshow/" + slides[slideNumber].image;
   bannerP.innerHTML = slides[slideNumber].tagLine;
 }
