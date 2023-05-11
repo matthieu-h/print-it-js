@@ -34,14 +34,16 @@ genereDot(numberOfSlide);
 const dotSelected = document.querySelector(".dot");
 dotSelected.classList.add("dot_selected");
 
-let bannerImage = document.querySelector(".banner-img");
-
 //************************************************************ */
+
+let bannerImage = document.querySelector(".banner-img");
 let slideNumber = 0;
+let bannerP = document.querySelector("p");
 
 function changeSlide(sens) {
   slideNumber = slideNumber + sens;
   bannerImage.src = "./assets/images/slideshow/" + slides[slideNumber].image;
+  bannerP.innerHTML = slides[slideNumber].tagLine;
 }
 
 arrowRight.addEventListener("click", () => {
