@@ -22,22 +22,32 @@ const arrowLeft = document.querySelector(".arrow_left");
 
 const arrowRight = document.querySelector(".arrow_right");
 
-arrowLeft.addEventListener("click", () => {
-  alert("Vous avez cliqué sur la flèche gauche !");
-});
-
-arrowRight.addEventListener("click", () => {
-  alert("Vous avez cliqué sur la flèche droite !");
-});
-
-let i = slides.length;
+let numberOfSlide = slides.length;
 const newDiv = '<div class="dot"></div>';
 
-function genereDot(i) {
-  document.querySelector(".dots").innerHTML = newDiv.repeat(i);
+function genereDot(numberOfSlide) {
+  document.querySelector(".dots").innerHTML = newDiv.repeat(numberOfSlide);
 }
 
-genereDot(i);
+genereDot(numberOfSlide);
 
 const dotSelected = document.querySelector(".dot");
 dotSelected.classList.add("dot_selected");
+
+let bannerImage = document.querySelector(".banner-img");
+
+//************************************************************ */
+let slideNumber = 0;
+
+function changeSlide(sens) {
+  slideNumber = slideNumber + sens;
+  bannerImage.src = "./assets/images/slideshow/" + slides[slideNumber].image;
+}
+
+arrowRight.addEventListener("click", () => {
+  changeSlide(+1);
+});
+
+arrowLeft.addEventListener("click", () => {
+  changeSlide(-1);
+});
