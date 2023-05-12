@@ -31,14 +31,17 @@ function genereDot(numberOfSlide) {
 
 genereDot(numberOfSlide);
 
-const dotSelected = document.querySelector(".dot");
-dotSelected.classList.add("dot_selected");
+let firstDotSelected = document.querySelector(".dot");
+firstDotSelected.classList.add("dot_selected");
 
 //************************************************************ */
 
 let bannerImage = document.querySelector(".banner-img");
 let bannerP = document.querySelector("p");
 let slideNumber = 0;
+let dotNumber = "";
+let dot = document.querySelectorAll(".dot");
+let dotSelected = document.querySelector(".dot_selected");
 
 function changeSlide(sens) {
   slideNumber = slideNumber + sens;
@@ -46,6 +49,9 @@ function changeSlide(sens) {
   if (slideNumber < 0) slideNumber = numberOfSlide - 1;
   bannerImage.src = "./assets/images/slideshow/" + slides[slideNumber].image;
   bannerP.innerHTML = slides[slideNumber].tagLine;
+  dotNumber = slideNumber;
+  dot[dotNumber].classList.add("dot_selected");
+  dotSelected.classList.remove(".dot_selected");
 }
 
 arrowRight.addEventListener("click", () => {
