@@ -39,7 +39,7 @@ firstDotSelected.classList.add("dot_selected");
 let bannerImage = document.querySelector(".banner-img");
 let bannerP = document.querySelector("p");
 let slideNumber = 0;
-let dotNumber = "";
+let dotNumber = 0;
 let dot = document.querySelectorAll(".dot");
 let dotSelected = document.querySelector(".dot_selected");
 
@@ -49,9 +49,11 @@ function changeSlide(sens) {
   if (slideNumber < 0) slideNumber = numberOfSlide - 1;
   bannerImage.src = "./assets/images/slideshow/" + slides[slideNumber].image;
   bannerP.innerHTML = slides[slideNumber].tagLine;
+  dot[dotNumber].classList.remove("dot_selected");
+  console.log(dotNumber);
   dotNumber = slideNumber;
+  console.log(dotNumber);
   dot[dotNumber].classList.add("dot_selected");
-  dotSelected.classList.remove(".dot_selected");
 }
 
 arrowRight.addEventListener("click", () => {
